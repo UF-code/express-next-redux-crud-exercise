@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Table } from 'react-bootstrap'
 
 export default function Home() {
     return (
@@ -10,145 +12,37 @@ export default function Home() {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
 
-            <main className='flex h-screen items-center justify-center'>
-                <div className=''>test with next app</div>
-
-                <table class='border-collapse border border-slate-500  '>
-                    <thead>
-                        <tr>
-                            <th class='border border-slate-600 '>State</th>
-                            <th class='border border-slate-600 '>City</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class='border border-slate-700 '>Indiana</td>
-                            <td class='border border-slate-700 '>Indianapolis</td>
-                        </tr>
-                        <tr>
-                            <td class='border border-slate-700 '>Ohio</td>
-                            <td class='border border-slate-700 '>Columbus</td>
-                        </tr>
-                        <tr>
-                            <td class='border border-slate-700 '>Michigan</td>
-                            <td class='border border-slate-700 '>Detroit</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class='container flex justify-center mx-auto'>
-                    <div class='flex flex-col'>
-                        <div class='w-full'>
-                            <div class='border-b border-gray-200 shadow'>
-                                <table>
-                                    <thead class='bg-gray-50'>
-                                        <tr>
-                                            <th class='px-6 py-2 text-xs text-gray-500'>ID</th>
-                                            <th class='px-6 py-2 text-xs text-gray-500'>Name</th>
-                                            <th class='px-6 py-2 text-xs text-gray-500'>Email</th>
-                                            <th class='px-6 py-2 text-xs text-gray-500'>
-                                                Created_at
-                                            </th>
-                                            <th class='px-6 py-2 text-xs text-gray-500'>Edit</th>
-                                            <th class='px-6 py-2 text-xs text-gray-500'>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class='bg-white'>
-                                        <tr class='whitespace-nowrap'>
-                                            <td class='px-6 py-4 text-sm text-gray-500'>1</td>
-                                            <td class='px-6 py-4'>
-                                                <div class='text-sm text-gray-900'>Jon doe</div>
-                                            </td>
-                                            <td class='px-6 py-4'>
-                                                <div class='text-sm text-gray-500'>
-                                                    jhondoe@example.com
-                                                </div>
-                                            </td>
-                                            <td class='px-6 py-4 text-sm text-gray-500'>
-                                                2021-1-12
-                                            </td>
-                                            <td class='px-6 py-4'>
-                                                <a
-                                                    href='#'
-                                                    class='px-4 py-1 text-sm text-white bg-blue-400 rounded'
-                                                >
-                                                    Edit
-                                                </a>
-                                            </td>
-                                            <td class='px-6 py-4'>
-                                                <a
-                                                    href='#'
-                                                    class='px-4 py-1 text-sm text-white bg-red-400 rounded'
-                                                >
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr class='whitespace-nowrap'>
-                                            <td class='px-6 py-4 text-sm text-gray-500'>1</td>
-                                            <td class='px-6 py-4'>
-                                                <div class='text-sm text-gray-900'>Jon doe</div>
-                                            </td>
-                                            <td class='px-6 py-4'>
-                                                <div class='text-sm text-gray-500'>
-                                                    jhondoe@example.com
-                                                </div>
-                                            </td>
-                                            <td class='px-6 py-4 text-sm text-gray-500'>
-                                                2021-1-12
-                                            </td>
-                                            <td class='px-6 py-4'>
-                                                <a
-                                                    href='#'
-                                                    class='px-4 py-1 text-sm text-white bg-blue-400 rounded'
-                                                >
-                                                    Edit
-                                                </a>
-                                            </td>
-                                            <td class='px-6 py-4'>
-                                                <a
-                                                    href='#'
-                                                    class='px-4 py-1 text-sm text-white bg-red-400 rounded'
-                                                >
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr class='whitespace-nowrap'>
-                                            <td class='px-6 py-4 text-sm text-gray-500'>1</td>
-                                            <td class='px-6 py-4'>
-                                                <div class='text-sm text-gray-900'>Jon doe</div>
-                                            </td>
-                                            <td class='px-6 py-4'>
-                                                <div class='text-sm text-gray-500'>
-                                                    jhondoe@example.com
-                                                </div>
-                                            </td>
-                                            <td class='px-6 py-4 text-sm text-gray-500'>
-                                                2021-1-12
-                                            </td>
-                                            <td class='px-6 py-4'>
-                                                <a
-                                                    href='#'
-                                                    class='px-4 py-1 text-sm text-white bg-blue-400 rounded'
-                                                >
-                                                    Edit
-                                                </a>
-                                            </td>
-                                            <td class='px-6 py-4'>
-                                                <a
-                                                    href='#'
-                                                    class='px-4 py-1 text-sm text-white bg-red-400 rounded'
-                                                >
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+            <main>
+                <div>
+                    <Table striped bordered hover variant='dark'>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td colSpan={2}>Larry Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </Table>
                 </div>
             </main>
         </div>
