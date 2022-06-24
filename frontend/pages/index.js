@@ -9,10 +9,30 @@ import React from 'react'
 
 //
 import { useDispatch } from 'react-redux'
-import { addCustomer } from '../redux/customerSlice'
+import { addCustomer, getCustomers } from '../redux/customerSlice'
+
+import axios from '../axios.js'
 
 export default function Home() {
     const dispatch = useDispatch()
+
+    axios
+        .get(`/getAllCustomers`)
+        .then((res) => {
+            // console.log(res.status)
+            // console.log(res.data)
+            // console.log(res.data[0].id)
+            // console.log(res.data[0].first_name)
+            // console.log(res.data[0].last_name)
+            // console.log(res.data[0].email)
+            // console.log(res.data[0].birthdate)
+            // console.log(res.data[0].createdAt)
+            // console.log(res.data[0].updatedAt)
+            // customers = [...res.data]
+            // console.log(customers)
+            dispatch(getCustomers(res.data))
+        })
+        .catch((err) => console.log(err))
 
     return (
         <div className='bg-dark vw-100 vh-100 d-flex justify-content-center align-items-center'>
@@ -28,13 +48,12 @@ export default function Home() {
                         variant='success'
                         className='p-3 m-3'
                         onClick={() => {
-                            console.log(customers)
                             dispatch(
                                 addCustomer({
                                     id: 1,
-                                    first_name: 'ugur',
-                                    last_name: 'firat',
-                                    email: 'ugur@firat.com',
+                                    first_name: 'ugur1',
+                                    last_name: 'firat1',
+                                    email: 'ugur@firat1.com',
                                 })
                             )
                         }}
