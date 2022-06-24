@@ -1,5 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Table, Button, ButtonGroup, DropdownButton, Dropdown } from 'react-bootstrap'
+// axios
+import axios from '../axios.js'
+
+axios(`/getAllCustomers`)
+    .then((res) => {
+        console.log(res.status)
+        console.log(res.data)
+        console.log(res.data[0].id)
+        console.log(res.data[0].first_name)
+        console.log(res.data[0].last_name)
+        console.log(res.data[0].email)
+    })
+    .catch((err) => console.log(err))
 
 const TableComponent = () => {
     const customers = [

@@ -20,7 +20,7 @@ import router from './routes/customer.routes.js'
 app.use('/api/customers', router)
 
 // BACKEND PORT
-const PORT = process.env.PORT_BACKEND || 5001
+const PORT = process.env.PORT_BACKEND || 3001
 
 // ENVIROMENT
 const ENVIROMENT = process.env.NODE_ENV
