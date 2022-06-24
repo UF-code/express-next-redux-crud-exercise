@@ -1,26 +1,9 @@
-import React, { useEffect } from 'react'
 import { Table, Button, ButtonGroup, DropdownButton, Dropdown } from 'react-bootstrap'
-// axios
-import axios from '../axios.js'
 
-axios(`/getAllCustomers`)
-    .then((res) => {
-        console.log(res.status)
-        console.log(res.data)
-        console.log(res.data[0].id)
-        console.log(res.data[0].first_name)
-        console.log(res.data[0].last_name)
-        console.log(res.data[0].email)
-    })
-    .catch((err) => console.log(err))
+import { useSelector } from 'react-redux'
 
 const TableComponent = () => {
-    const customers = [
-        { id: 1, first: 'mark', last: 'otto', username: '@mdo' },
-        { id: 2, first: 'mark', last: 'otto', username: '@mdo' },
-        { id: 3, first: 'mark', last: 'otto', username: '@mdo' },
-        { id: 4, first: 'mark', last: 'otto', username: '@mdo' },
-    ]
+    const customers = useSelector((state) => state.customers.customers)
 
     return (
         <Table striped bordered hover variant='dark'>
@@ -38,9 +21,9 @@ const TableComponent = () => {
                 {customers.map((customer) => (
                     <tr>
                         <td> {customer.id}</td>
-                        <td> {customer.first} </td>
-                        <td> {customer.last} </td>
-                        <td> {customer.username} </td>
+                        <td> {customer.first_name} </td>
+                        <td> {customer.last_name} </td>
+                        <td> {customer.email} </td>
                         <td>
                             <Button variant='warning'>Edit</Button>
                         </td>

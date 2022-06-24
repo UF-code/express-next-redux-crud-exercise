@@ -4,7 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button } from 'react-bootstrap'
 import TableComponent from '../components/table.component.jsx'
 
+// axios
+import React from 'react'
+
+//
+import { useDispatch } from 'react-redux'
+import { addCustomer } from '../redux/customerSlice'
+
 export default function Home() {
+    const dispatch = useDispatch()
+
     return (
         <div className='bg-dark vw-100 vh-100 d-flex justify-content-center align-items-center'>
             <Head>
@@ -15,7 +24,21 @@ export default function Home() {
 
             <main>
                 <div className='w-100 d-flex justify-content-center'>
-                    <Button variant='success' className='p-3 m-3'>
+                    <Button
+                        variant='success'
+                        className='p-3 m-3'
+                        onClick={() => {
+                            console.log(customers)
+                            dispatch(
+                                addCustomer({
+                                    id: 1,
+                                    first_name: 'ugur',
+                                    last_name: 'firat',
+                                    email: 'ugur@firat.com',
+                                })
+                            )
+                        }}
+                    >
                         Create New Customer
                     </Button>
                 </div>
