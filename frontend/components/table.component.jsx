@@ -1,39 +1,13 @@
-import { Table, Button, ButtonGroup, DropdownButton, Dropdown } from 'react-bootstrap'
+import { Table, Button } from 'react-bootstrap'
 
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import axios from '../axios.js'
-
-import { useDispatch } from 'react-redux'
-import { getCustomers } from '../redux/customerSlice'
+import { deleteCustomer } from '../redux/customerSlice'
 
 const TableComponent = () => {
     const customers = useSelector((state) => state.customers.customers)
-
-    console.log(customers)
-    console.log(customers)
-    console.log(customers)
-    // const dispatch = useDispatch()
-    // useEffect(() => {
-    //     axios
-    //         .get(`/getAllCustomers`)
-    //         .then((res) => {
-    //             console.log(res.status)
-    //             console.log(res.data)
-    //             console.log(res.data[0].id)
-    //             console.log(res.data[0].first_name)
-    //             console.log(res.data[0].last_name)
-    //             console.log(res.data[0].email)
-    //             console.log(res.data[0].birthdate)
-    //             console.log(res.data[0].createdAt)
-    //             console.log(res.data[0].updatedAt)
-    //             // customers = [...res.data]
-    //             // console.log(customers)
-    //             dispatch(getCustomers(res.data))
-    //         })
-    //         .catch((err) => console.log(err))
-    // })
+    const dispatch = useDispatch()
 
     return (
         <Table striped bordered hover variant='dark'>
@@ -58,7 +32,14 @@ const TableComponent = () => {
                             <Button variant='warning'>Edit</Button>
                         </td>
                         <td>
-                            <Button variant='danger'>Delete</Button>
+                            <Button
+                                variant='danger'
+                                onClick={() => {
+                                    dispatch(deleteCustomer(customer.id))
+                                }}
+                            >
+                                Delete
+                            </Button>
                         </td>
                     </tr>
                 ))}

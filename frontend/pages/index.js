@@ -50,7 +50,7 @@ export default function Home() {
                         onClick={() => {
                             dispatch(
                                 addCustomer({
-                                    id: 1,
+                                    id: 2,
                                     first_name: 'ugur1',
                                     last_name: 'firat1',
                                     email: 'ugur@firat1.com',
